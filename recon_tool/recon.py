@@ -1,6 +1,7 @@
 import dns.resolver
 import requests
 import sys
+from agent import analyze_with_ai
 
 def get_ip(domain):
     """
@@ -75,28 +76,36 @@ def get_http_headers(domain):
 
 def analyze_headers(headers):
     """
-    Print simple security observations from HTTP headers.
+    Check HTTP headers for common security issues.
+    Prints each observation and returns them as a list of strings.
     """
     normalized = {k.lower(): v for k, v in headers.items()}
+    flags = []
+
+    def flag(msg):
+        print(msg)
+        flags.append(msg)
 
     if "strict-transport-security" in normalized:
-        print("[✓] HSTS enabled")
+        flag("[✓] HSTS enabled")
     else:
-        print("[!] HSTS not set — HTTPS not enforced")
+        flag("[!] HSTS not set — HTTPS not enforced")
 
     if "x-frame-options" in normalized:
-        print("[✓] Clickjacking protection enabled (X-Frame-Options)")
+        flag("[✓] Clickjacking protection enabled (X-Frame-Options)")
     else:
         csp = normalized.get("content-security-policy", "")
         if "frame-ancestors" in csp.lower():
-            print("[✓] Clickjacking protection enabled (CSP frame-ancestors)")
+            flag("[✓] Clickjacking protection enabled (CSP frame-ancestors)")
         else:
-            print("[!] Clickjacking protection missing")
+            flag("[!] Clickjacking protection missing")
 
     if "x-content-type-options" in normalized:
-        print("[✓] MIME sniffing protection enabled")
+        flag("[✓] MIME sniffing protection enabled")
     else:
-        print("[!] MIME sniffing protection missing")
+        flag("[!] MIME sniffing protection missing")
+
+    return flags
 
 
 def get_subdomains(domain):
@@ -116,7 +125,7 @@ def get_subdomains(domain):
     for line in response.text.splitlines():
         # Skip empty lines and HackerTarget error responses
         if not line or line.startswith("error"):
-            continue
+            return []
         parts = line.split(",")
         if len(parts) != 2:
             continue
@@ -191,7 +200,48 @@ def main():
         print("- None found")
 
     print("\nSecurity Observations:")
-    analyze_headers(headers)
+    header_flags = analyze_headers(headers)
+
+    # --- AI Analysis ---
+    recon_data = {
+        "ips":          ips,
+        "dns_records":  dns_records,
+        "headers":      headers,
+        "subdomains":   subdomains,
+        "header_flags": header_flags,
+    }
+
+    print("\nAI Security Analysis:")
+    analysis = analyze_with_ai(domain, recon_data)
+
+    if not analysis:
+        print("  [!] AI analysis failed or returned no data.")
+        return
+
+    print(f"Risk Summary: {analysis.get('risk_summary', 'N/A')}")
+
+    findings = analysis.get("findings", [])
+    if not findings:
+        print("\nFindings:\n  None reported.")
+        return
+
+    print("\nFindings:")
+    SEVERITY_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
+
+    findings.sort(key=lambda f: SEVERITY_ORDER.get(f.get("severity", "info"), 99))
+    for f in findings:
+        title       = f.get("title", "Untitled")
+        description = f.get("description", "")
+        evidence    = f.get("evidence", "")
+        fix         = f.get("recommendation", "")
+
+        print(f"\n[{severity}] {title}")
+        if description:
+            print(f"  → {description}")
+        if evidence:
+            print(f"  → Evidence: {evidence}")
+        if fix:
+            print(f"  → Fix: {fix}")
 
 if __name__ == "__main__":
     main()
