@@ -2,6 +2,7 @@ import dns.resolver
 import requests
 import sys
 from agent import analyze_with_ai
+from reporter import generate_report, save_report
 
 def get_ip(domain):
     """
@@ -227,9 +228,10 @@ def main():
 
     print("\nFindings:")
     SEVERITY_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
-
     findings.sort(key=lambda f: SEVERITY_ORDER.get(f.get("severity", "info"), 99))
+
     for f in findings:
+        severity    = f.get("severity", "info").upper()
         title       = f.get("title", "Untitled")
         description = f.get("description", "")
         evidence    = f.get("evidence", "")
@@ -242,6 +244,10 @@ def main():
             print(f"  → Evidence: {evidence}")
         if fix:
             print(f"  → Fix: {fix}")
+
+    report_md = generate_report(domain, recon_data, analysis)
+    filename  = save_report(domain, report_md)
+    print(f"\n[✓] Report saved to: {filename}")
 
 if __name__ == "__main__":
     main()
