@@ -1,0 +1,294 @@
+{
+  "domain": "github.com",
+  "scan_date": "2026-04-23",
+  "ips": [
+    "4.237.22.38"
+  ],
+  "dns_records": {
+    "MX": [
+      "github-com.mail.protection.outlook.com"
+    ],
+    "TXT": [
+      "TAILSCALE-xOzoDvFUzZr5YYVCQFuD",
+      "loom-site-verification=f3787154f1154b7880e720a511ea664d",
+      "apple-domain-verification=RyQhdzTl6Z6x8ZP4",
+      "docusign=087098e3-3d46-47b7-9b4e-8a23028154cd",
+      "MS=6BF03E6AF5CB689E315FB6199603BABF2C88D805",
+      "v=spf1 ip4:192.30.252.0/22 include:spf.protection.outlook.com include:_netblocks.google.com include:_netblocks2.google.com include:mail.zendesk.com include:_spf.salesforce.com include:servers.mcsv.net include:mktomail.com include:sendgrid.net ip4:62.253.227.114 ip4:166.78.69.169 ip4:166.78.69.170 ip4:166.78.71.131 ~all",
+      "adobe-idp-site-verification=b92c9e999aef825edc36e0a3d847d2dbad5b2fc0e05c79ddd7a16139b48ecf4b",
+      "atlassian-domain-verification=jjgw98AKv2aeoYFxiL/VFaoyPkn3undEssTRuMg6C/3Fp/iqhkV4HVV7WjYlVeF8",
+      "facebook-domain-verification=39xu4jzl7roi7x0n93ldkxjiaarx50",
+      "MS=ms58704441",
+      "MS=ms44452932",
+      "shopify-verification-code=t1YPwcmvnxZyBycaCpk1MPyWoFs72o",
+      "calendly-site-verification=at0DQARi7IZvJtXQAWhMqpmIzpvoBNF7aam5VKKxP",
+      "google-site-verification=82Le34Flgtd15ojYhHlGF_6g72muSjamlMVThBOJpks",
+      "jamf-site-verification=XtaPNIYghF_e_xRDI8CjgQ",
+      "google-site-verification=UTM-3akMgubp6tQtgEuAkYNYLyYAvpTnnSrDMWoDR3o",
+      "stripe-verification=f88ef17321660a01bab1660454192e014defa29ba7b8de9633c69d6b4912217f",
+      "krisp-domain-verification=ZlyiK7XLhnaoUQb2hpak1PLY7dFkl1WE",
+      "miro-verification=d2e174fdb00c71e0bcf58f8e58c3da2dd80dcfa9"
+    ]
+  },
+  "headers": {
+    "Date": "Thu, 23 Apr 2026 06:18:17 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Vary": "X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, Accept-Language, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With",
+    "content-language": "en-US",
+    "ETag": "W/\"ccea90cee8281d5222ab6a8f72bf91b5\"",
+    "Cache-Control": "max-age=0, private, must-revalidate",
+    "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+    "X-Frame-Options": "deny",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "0",
+    "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com github.githubassets.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net productionresultssa1.blob.core.windows.net productionresultssa2.blob.core.windows.net productionresultssa3.blob.core.windows.net productionresultssa4.blob.core.windows.net productionresultssa5.blob.core.windows.net productionresultssa6.blob.core.windows.net productionresultssa7.blob.core.windows.net productionresultssa8.blob.core.windows.net productionresultssa9.blob.core.windows.net productionresultssa10.blob.core.windows.net productionresultssa11.blob.core.windows.net productionresultssa12.blob.core.windows.net productionresultssa13.blob.core.windows.net productionresultssa14.blob.core.windows.net productionresultssa15.blob.core.windows.net productionresultssa16.blob.core.windows.net productionresultssa17.blob.core.windows.net productionresultssa18.blob.core.windows.net productionresultssa19.blob.core.windows.net github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com wss://alive-staging.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com edge.fullstory.com rs.fullstory.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com www.youtube-nocookie.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com release-assets.githubusercontent.com secured-user-images.githubusercontent.com user-images.githubusercontent.com private-user-images.githubusercontent.com opengraph.githubassets.com marketplace-screenshots.githubusercontent.com copilotprodattachments.blob.core.windows.net/github-production-copilot-attachments/ github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com images.ctfassets.net/8aevphvgewt8/; manifest-src 'self'; media-src github.com user-images.githubusercontent.com secured-user-images.githubusercontent.com private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com github.githubassets.com assets.ctfassets.net/8aevphvgewt8/ videos.ctfassets.net/8aevphvgewt8/; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/",
+    "Server": "github.com",
+    "Content-Encoding": "gzip",
+    "Accept-Ranges": "bytes",
+    "Set-Cookie": "_gh_sess=%2Bk%2F4jzMbTsJsR83ni%2FyOYPgSjwQaWp3IPQBEpV9MG6nw5ne6ygrfGpl8g%2FHKT1fHIqcR8iXyjyslzrxqTVGwFAT%2FgP%2FCVTvqCP701BAIU10pwuu%2B%2Bw6XjjiM%2Fps4hL%2FFI7%2BN3PLRDFMXMUxOMz1FKy1YLkckuv7BND7%2Bjb6HmdtThyo2DhHxP8GH%2FVuj7VgKvxxMZ1peLf8KfJZ17LA%2BUiypUUDfWqb70doAw4qs3q7W7jZJh%2F%2BkItMhzbOfiXDZb7NsYrdAVnkxfFWrEwH4hA%3D%3D--%2BbfQ6hOtCasFU7eP--17CdrgEW9G5bWwGHXOddQA%3D%3D; path=/; HttpOnly; secure; SameSite=Lax, _octo=GH1.1.717429957.1776925099; expires=Fri, 23 Apr 2027 06:18:19 GMT; domain=.github.com; path=/; secure; SameSite=Lax, logged_in=no; expires=Fri, 23 Apr 2027 06:18:19 GMT; domain=.github.com; path=/; HttpOnly; secure; SameSite=Lax",
+    "X-GitHub-Request-Id": "6C76:75647:1F43190:244DC0D:69E9B9AB"
+  },
+  "subdomains": [
+    {
+      "subdomain": "github.com",
+      "ip": "140.82.112.3"
+    },
+    {
+      "subdomain": "accelerator.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "accessibility.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "accessibility-playbook.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "action.github.com",
+      "ip": "185.199.111.153"
+    },
+    {
+      "subdomain": "admin.github.com",
+      "ip": "140.82.113.23"
+    },
+    {
+      "subdomain": "alive.github.com",
+      "ip": "140.82.113.26"
+    },
+    {
+      "subdomain": "alive-staging.github.com",
+      "ip": "143.55.70.2"
+    },
+    {
+      "subdomain": "api.github.com",
+      "ip": "140.82.113.6"
+    },
+    {
+      "subdomain": "archiveprogram.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "asset-generator.github.com",
+      "ip": "185.199.109.153"
+    },
+    {
+      "subdomain": "atom-installer.github.com",
+      "ip": "185.199.108.133"
+    },
+    {
+      "subdomain": "blog.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "blog-freeze.github.com",
+      "ip": "185.199.109.153"
+    },
+    {
+      "subdomain": "bounty.github.com",
+      "ip": "185.199.111.153"
+    },
+    {
+      "subdomain": "boxen.github.com",
+      "ip": "185.199.109.153"
+    },
+    {
+      "subdomain": "brand.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "bug-bash.github.com",
+      "ip": "185.199.111.153"
+    },
+    {
+      "subdomain": "campus.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "cdn-185-199-108-133.github.com",
+      "ip": "185.199.108.133"
+    },
+    {
+      "subdomain": "cdn-185-199-108-153.github.com",
+      "ip": "185.199.108.153"
+    },
+    {
+      "subdomain": "cdn-185-199-108-154.github.com",
+      "ip": "185.199.108.154"
+    },
+    {
+      "subdomain": "cdn-185-199-109-133.github.com",
+      "ip": "185.199.109.133"
+    },
+    {
+      "subdomain": "cdn-185-199-109-153.github.com",
+      "ip": "185.199.109.153"
+    },
+    {
+      "subdomain": "cdn-185-199-109-154.github.com",
+      "ip": "185.199.109.154"
+    },
+    {
+      "subdomain": "cdn-185-199-110-133.github.com",
+      "ip": "185.199.110.133"
+    },
+    {
+      "subdomain": "cdn-185-199-110-153.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "cdn-185-199-111-133.github.com",
+      "ip": "185.199.111.133"
+    },
+    {
+      "subdomain": "cdn-185-199-111-153.github.com",
+      "ip": "185.199.111.153"
+    },
+    {
+      "subdomain": "cdn-185-199-111-154.github.com",
+      "ip": "185.199.111.154"
+    },
+    {
+      "subdomain": "central.github.com",
+      "ip": "140.82.112.22"
+    },
+    {
+      "subdomain": "classroom.github.com",
+      "ip": "140.82.113.21"
+    },
+    {
+      "subdomain": "cli.github.com",
+      "ip": "185.199.108.153"
+    },
+    {
+      "subdomain": "f.cloud.github.com",
+      "ip": "199.232.38.217"
+    },
+    {
+      "subdomain": "codeload.github.com",
+      "ip": "140.82.114.10"
+    },
+    {
+      "subdomain": "codeql.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "collector.github.com",
+      "ip": "140.82.112.22"
+    },
+    {
+      "subdomain": "collector-cdn.github.com",
+      "ip": "185.199.111.133"
+    },
+    {
+      "subdomain": "community.github.com",
+      "ip": "140.82.112.18"
+    },
+    {
+      "subdomain": "copilot.github.com",
+      "ip": "140.82.112.17"
+    },
+    {
+      "subdomain": "cs.github.com",
+      "ip": "140.82.113.17"
+    },
+    {
+      "subdomain": "customer-stories-feed.github.com",
+      "ip": "185.199.108.153"
+    },
+    {
+      "subdomain": "cxr.github.com",
+      "ip": "185.199.108.153"
+    },
+    {
+      "subdomain": "data-science.github.com",
+      "ip": "185.199.111.153"
+    },
+    {
+      "subdomain": "de.github.com",
+      "ip": "140.82.113.18"
+    },
+    {
+      "subdomain": "desktop.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "developer.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "developers.github.com",
+      "ip": "185.199.110.153"
+    },
+    {
+      "subdomain": "diversity.github.com",
+      "ip": "185.199.108.153"
+    },
+    {
+      "subdomain": "docs.github.com",
+      "ip": "185.199.110.154"
+    },
+    {
+      "subdomain": "docs-internal.github.com",
+      "ip": "140.82.113.22"
+    }
+  ],
+  "header_flags": [
+    "[\u2713] HSTS enabled",
+    "[\u2713] Clickjacking protection enabled (X-Frame-Options)",
+    "[\u2713] MIME sniffing protection enabled"
+  ],
+  "risk_summary": "The domain github.com has a robust security posture with several security headers enabled, but there are some potential issues with subdomain configuration and HTTP header settings. Overall, the risk is relatively low, but some improvements can be made to further enhance security.",
+  "findings": [
+    {
+      "title": "X-XSS-Protection Header Set to 0",
+      "severity": "medium",
+      "description": "The X-XSS-Protection header is set to 0, which disables the browser's built-in XSS protection. This could make the application more vulnerable to XSS attacks.",
+      "evidence": "X-XSS-Protection: 0",
+      "recommendation": "Set the X-XSS-Protection header to 1; mode=block to enable the browser's built-in XSS protection."
+    },
+    {
+      "title": "Unsecured Subdomains",
+      "severity": "low",
+      "description": "Some subdomains (e.g., admin.github.com, alive-staging.github.com, developer.github.com, developers.github.com, docs-internal.github.com) have different IP addresses, which could indicate unsecured or unused subdomains.",
+      "evidence": "Subdomains with different IP addresses",
+      "recommendation": "Review and secure or remove unused subdomains to prevent potential security risks."
+    },
+    {
+      "title": "Missing Content-Security-Policy (CSP) Directives",
+      "severity": "low",
+      "description": "The Content-Security-Policy (CSP) header is present, but some directives (e.g., 'upgrade-insecure-requests') are not explicitly defined.",
+      "evidence": "Content-Security-Policy: default-src 'none'; ...",
+      "recommendation": "Review and update the CSP header to include all necessary directives to ensure optimal security."
+    },
+    {
+      "title": "Secure Cookie Flags",
+      "severity": "info",
+      "description": "The Set-Cookie header sets the 'secure' flag, which is good practice for securing cookies.",
+      "evidence": "Set-Cookie: _gh_sess=...; secure; SameSite=Lax",
+      "recommendation": "Continue to use the 'secure' flag for all cookies to ensure their confidentiality and integrity."
+    }
+  ]
+}

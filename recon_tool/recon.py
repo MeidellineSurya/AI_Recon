@@ -1,8 +1,10 @@
 import dns.resolver
 import requests
 import sys
+import os
+import argparse
 from agent import analyze_with_ai
-from reporter import generate_report, save_report
+from reporter import generate_report, save_report, save_json
 
 def get_ip(domain):
     """
@@ -141,11 +143,14 @@ def main():
     # 1. Check len(sys.argv) — exit if no domain argument given
     # 2. Call all three functions
     # 3. Print results clearly
-    if len(sys.argv) < 2:
-        print("Usage: python recon.py <domain>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="OSINT Recon Agent")
+    parser.add_argument("domain", help="Target domain")
+    parser.add_argument("--output", default="reports", help="Output directory")
+    args = parser.parse_args()
 
-    domain = sys.argv[1]
+    domain     = args.domain
+    output_dir = args.output
+    os.makedirs(output_dir, exist_ok=True)
 
     ips = get_ip(domain)
     dns_records = get_dns_records(domain)
@@ -246,8 +251,10 @@ def main():
             print(f"  → Fix: {fix}")
 
     report_md = generate_report(domain, recon_data, analysis)
-    filename  = save_report(domain, report_md)
-    print(f"\n[✓] Report saved to: {filename}")
+    md_file   = save_report(domain, report_md, output_dir)
+    json_file = save_json(domain, recon_data, analysis, output_dir)
+    print(f"\n[✓] Report saved to: {md_file}")
+    print(f"[✓] JSON saved to:   {json_file}")
 
 if __name__ == "__main__":
     main()

@@ -106,14 +106,27 @@ def generate_report(domain, recon_data, analysis):
     return "\n".join(sections)
 
 
-def save_report(domain, content):
+def save_report(domain, content, output_dir="."):
     """
     Saves the markdown string to a file.
-    Filename format: {domain}_report_{date}.md
-    Example: github.com_report_2026-04-23.md
-    Returns the filename so main() can print it.
+    Filename format: {output_dir}/{domain}_report_{date}.md
+    Returns the filepath so main() can print it.
     """
-    filename = f"{domain}_report_{date.today()}.md"
-    with open(filename, "w", encoding="utf-8") as f:
+    filepath = f"{output_dir}/{domain}_report_{date.today()}.md"
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
-    return filename
+    return filepath
+
+
+def save_json(domain, recon_data, analysis, output_dir="."):
+    """
+    Save raw scan data as JSON.
+    Filename: {output_dir}/{domain}_scan_{date}.json
+    Returns filepath.
+    """
+    import json
+    filepath = f"{output_dir}/{domain}_scan_{date.today()}.json"
+    payload = {"domain": domain, "scan_date": str(date.today())} | recon_data | analysis
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(json.dumps(payload, indent=2))
+    return filepath
