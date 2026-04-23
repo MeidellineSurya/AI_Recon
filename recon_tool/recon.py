@@ -99,6 +99,34 @@ def analyze_headers(headers):
         print("[!] MIME sniffing protection missing")
 
 
+def get_subdomains(domain):
+    """
+    Fetch subdomains using HackerTarget API.
+    Returns a list of dicts: [{"subdomain": ..., "ip": ...}]
+    If the request fails or returns an error, return an empty list.
+    """
+    url = f"https://api.hackertarget.com/hostsearch/?q={domain}"
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException:
+        return []
+
+    results = []
+    for line in response.text.splitlines():
+        # Skip empty lines and HackerTarget error responses
+        if not line or line.startswith("error"):
+            continue
+        parts = line.split(",")
+        if len(parts) != 2:
+            continue
+        subdomain, ip = parts[0].strip(), parts[1].strip()
+        if subdomain and ip:
+            results.append({"subdomain": subdomain, "ip": ip})
+
+    return results
+
+
 def main():
     # 1. Check len(sys.argv) — exit if no domain argument given
     # 2. Call all three functions
@@ -112,6 +140,7 @@ def main():
     ips = get_ip(domain)
     dns_records = get_dns_records(domain)
     headers = get_http_headers(domain)
+    subdomains = get_subdomains(domain)
 
     print(f"Domain: {domain}")
     print("\nA Records:")
@@ -141,6 +170,25 @@ def main():
             print(f"- {key}: {value}")
     else:
         print("- None")
+
+    print("\nSubdomains Found:")
+    if subdomains:
+        for entry in subdomains:
+            print(f"- {entry['subdomain']}  →  {entry['ip']}")
+    else:
+        print("- None")
+
+    INTERESTING_KEYWORDS = {"staging", "internal", "admin", "dev", "test", "backup"}
+    interesting = [
+        entry for entry in subdomains
+        if any(kw in entry["subdomain"].lower() for kw in INTERESTING_KEYWORDS)
+    ]
+    print("\nInteresting Subdomains:")
+    if interesting:
+        for entry in interesting:
+            print(f"- [!] {entry['subdomain']}  →  {entry['ip']}")
+    else:
+        print("- None found")
 
     print("\nSecurity Observations:")
     analyze_headers(headers)
